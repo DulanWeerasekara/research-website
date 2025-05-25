@@ -1,9 +1,44 @@
 import { useEffect, useRef, useState } from "react";
 import { Link as ScrollLink, Element } from "react-scroll";
+import coverImage from "./assets/cover.jpg";
+import dulanProfile from "./assets/profiles/dulan.png";
+import akilaProfile from "./assets/profiles/akila.png";
+import rashiniProfile from "./assets/profiles/rashini.png";
+import dulangaProfile from "./assets/profiles/dulanga.png";
+import pradeepProfile from "./assets/profiles/pradeep.png";
+import anjalieProfile from "./assets/profiles/anjalie.png";
+import dumindaProfile from "./assets/profiles/duminda.png";
+
+// Technology logos
+import flutterLogo from "./assets/logos/flutter.png";
+import reactLogo from "./assets/logos/react.png";
+import githubLogo from "./assets/logos/github.png";
+import tensorflowLogo from "./assets/logos/tensorflow.png";
+import pythonLogo from "./assets/logos/python.png";
+import firebaseLogo from "./assets/logos/firebase.png";
 
 export default function App() {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
+
+  const techLogos = {
+    Flutter: flutterLogo,
+    React: reactLogo,
+    GitHub: githubLogo,
+    TensorFlow: tensorflowLogo,
+    Python: pythonLogo,
+    Firebase: firebaseLogo,
+  };
+
+  const profileImages = {
+    dulan: dulanProfile,
+    akila: akilaProfile,
+    rashini: rashiniProfile,
+    dulanga: dulangaProfile,
+    pradeep: pradeepProfile,
+    anjalie: anjalieProfile,
+    duminda: dumindaProfile,
+  };
 
   // Close dropdown on outside click
   useEffect(() => {
@@ -59,7 +94,7 @@ export default function App() {
   return (
     <div className="min-h-screen bg-white text-black">
       {/* Navbar */}
-      <nav className="bg-white shadow p-4 fixed top-0 left-0 right-0 z-10">
+      <nav className="bg-white shadow p-4 fixed top-0 left-0 right-0 z-30">
         <div className="flex justify-end space-x-6">
           <ScrollLink
             to="home"
@@ -151,7 +186,7 @@ export default function App() {
         <Element name="home">
           <section
             className="relative h-[500px] bg-cover bg-center flex items-center"
-            style={{ backgroundImage: "url('/src/assets/cover.jpg')" }}>
+            style={{ backgroundImage: `url(${coverImage})` }}>
             <div className="absolute left-8">
               <ScrollLink
                 to="domain"
@@ -845,9 +880,7 @@ export default function App() {
                     className="flex flex-col items-center space-y-3 group transform hover:-translate-y-1 transition-all duration-200">
                     <div className="w-20 h-20 rounded-2xl bg-gray-50 flex items-center justify-center shadow-sm group-hover:shadow-lg transition-shadow">
                       <img
-                        src={`/src/assets/logos/${tech
-                          .toLowerCase()
-                          .replace(/ /g, "")}.png`}
+                        src={techLogos[tech]}
                         alt={tech}
                         className="w-12 h-12 object-contain"
                       />
@@ -1214,7 +1247,7 @@ export default function App() {
                       <div className="w-full h-48 rounded-lg mb-4 overflow-hidden flex items-center justify-center bg-blue-100">
                         {imageUrl ? (
                           <img
-                            src={imageUrl}
+                            src={profileImages[member.image]}
                             alt={`${member.name}'s photo`}
                             className="w-[90%] h-[90%] object-cover rounded-md"
                           />
@@ -1259,7 +1292,7 @@ export default function App() {
                     className="bg-white rounded-xl p-4 shadow-md hover:shadow-lg transition-shadow">
                     <div className="w-full h-32 rounded-lg mb-4 overflow-hidden bg-green-100 flex items-center justify-center">
                       <img
-                        src={`/src/assets/profiles/${member.image}.png`}
+                        src={profileImages[member.image]}
                         alt={`${member.name}'s photo`}
                         className="w-[90%] h-[90%] object-contain rounded-md"
                       />
