@@ -97,7 +97,7 @@ export default function App() {
   return (
     <div className="min-h-screen bg-zinc-200 text-black">
       {/* Navbar */}
-      <nav className="bg-white shadow p-4 fixed top-0 left-0 right-0 z-30">
+      <nav className="bg-blue-200 shadow p-4 fixed top-0 left-0 right-0 z-30">
         <div className="flex justify-between items-center">
           {/* Logo Section */}
           <div className="flex items-center">
