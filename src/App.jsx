@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { Link as ScrollLink, Element } from "react-scroll";
 import coverImage from "./assets/cover.jpg";
+import diagram from "./assets/diagram.jpg";
+import logo from "/logo.png";
 import dulanProfile from "./assets/profiles/dulan.png";
 import akilaProfile from "./assets/profiles/akila.png";
 import rashiniProfile from "./assets/profiles/rashini.png";
@@ -95,89 +97,98 @@ export default function App() {
     <div className="min-h-screen bg-white text-black">
       {/* Navbar */}
       <nav className="bg-white shadow p-4 fixed top-0 left-0 right-0 z-30">
-        <div className="flex justify-end space-x-6">
-          <ScrollLink
-            to="home"
-            smooth={true}
-            duration={500}
-            className="text-blue-600 cursor-pointer">
-            Home
-          </ScrollLink>
-
-          <div className="relative" ref={dropdownRef}>
-            <span
-              onClick={() => setIsOpen(!isOpen)}
-              className="text-blue-600 cursor-pointer">
-              Domain ▾
-            </span>
-            {isOpen && (
-              <div className="absolute bg-white shadow-lg border mt-2 rounded z-20 w-48">
-                <ul className="text-sm text-gray-800 py-2">
-                  {[
-                    { name: "Literature Survey", id: "domain-literature" },
-                    { name: "Research Gap", id: "domain-gap" },
-                    { name: "Research Problem", id: "domain-problem" },
-                    { name: "Research Objectives", id: "domain-objectives" },
-                    { name: "Methodology", id: "domain-methodology" },
-                    { name: "Technologies Used", id: "domain-tech" },
-                  ].map((item) => (
-                    <li key={item.id} className="px-4 py-2 hover:bg-gray-100">
-                      <ScrollLink
-                        to={item.id}
-                        smooth={true}
-                        duration={500}
-                        offset={-70}
-                        className="cursor-pointer block"
-                        onClick={() => setIsOpen(false)}>
-                        {item.name}
-                      </ScrollLink>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
+        <div className="flex justify-between items-center">
+          {/* Logo Section */}
+          <div className="flex items-center">
+            <img src={logo} alt="Logo" className="h-14 w-auto mr-4" />
           </div>
 
-          <ScrollLink
-            to="milestones"
-            smooth={true}
-            duration={500}
-            offset={-70}
-            className="text-blue-600 cursor-pointer">
-            Milestones
-          </ScrollLink>
-          <ScrollLink
-            to="documents"
-            smooth={true}
-            duration={500}
-            offset={-70}
-            className="text-blue-600 cursor-pointer">
-            Documents
-          </ScrollLink>
-          <ScrollLink
-            to="slides"
-            smooth={true}
-            duration={500}
-            offset={-70}
-            className="text-blue-600 cursor-pointer">
-            Slides
-          </ScrollLink>
-          <ScrollLink
-            to="about"
-            smooth={true}
-            duration={500}
-            offset={-70}
-            className="text-blue-600 cursor-pointer">
-            About Us
-          </ScrollLink>
-          <ScrollLink
-            to="contact"
-            smooth={true}
-            duration={500}
-            offset={-70}
-            className="text-blue-600 cursor-pointer">
-            Contact
-          </ScrollLink>
+          {/* Navigation Links Section */}
+          <div className="flex justify-end space-x-6">
+            <ScrollLink
+              to="home"
+              smooth={true}
+              duration={500}
+              className="text-blue-600 cursor-pointer">
+              Home
+            </ScrollLink>
+
+            {/* Dropdown */}
+            <div className="relative" ref={dropdownRef}>
+              <span
+                onClick={() => setIsOpen(!isOpen)}
+                className="text-blue-600 cursor-pointer">
+                Domain ▾
+              </span>
+              {isOpen && (
+                <div className="absolute bg-white shadow-lg border mt-2 rounded z-20 w-48">
+                  <ul className="text-sm text-gray-800 py-2">
+                    {[
+                      { name: "Literature Survey", id: "domain-literature" },
+                      { name: "Research Gap", id: "domain-gap" },
+                      { name: "Research Problem", id: "domain-problem" },
+                      { name: "Research Objectives", id: "domain-objectives" },
+                      { name: "Methodology", id: "domain-methodology" },
+                      { name: "Technologies Used", id: "domain-tech" },
+                    ].map((item) => (
+                      <li key={item.id} className="px-4 py-2 hover:bg-gray-100">
+                        <ScrollLink
+                          to={item.id}
+                          smooth={true}
+                          duration={500}
+                          offset={-70}
+                          className="cursor-pointer block"
+                          onClick={() => setIsOpen(false)}>
+                          {item.name}
+                        </ScrollLink>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+
+            <ScrollLink
+              to="milestones"
+              smooth={true}
+              duration={500}
+              offset={-70}
+              className="text-blue-600 cursor-pointer">
+              Milestones
+            </ScrollLink>
+            <ScrollLink
+              to="documents"
+              smooth={true}
+              duration={500}
+              offset={-70}
+              className="text-blue-600 cursor-pointer">
+              Documents
+            </ScrollLink>
+            <ScrollLink
+              to="slides"
+              smooth={true}
+              duration={500}
+              offset={-70}
+              className="text-blue-600 cursor-pointer">
+              Slides
+            </ScrollLink>
+            <ScrollLink
+              to="about"
+              smooth={true}
+              duration={500}
+              offset={-70}
+              className="text-blue-600 cursor-pointer">
+              About Us
+            </ScrollLink>
+            <ScrollLink
+              to="contact"
+              smooth={true}
+              duration={500}
+              offset={-70}
+              className="text-blue-600 cursor-pointer">
+              Contact
+            </ScrollLink>
+          </div>
         </div>
       </nav>
 
@@ -219,8 +230,82 @@ export default function App() {
               {
                 id: "domain-literature",
                 title: "Literature Survey",
-                content:
-                  "Existing mHealth solutions focus on basic symptom tracking but lack integration with wearable devices and AI-driven analysis. Current systems show limited adoption of IoT capabilities for continuous monitoring.",
+                content: (
+                  <div className="space-y-6 text-gray-700 leading-relaxed">
+                    <div className="bg-indigo-50 p-6 rounded-xl border-l-4 border-indigo-400">
+                      <p className="text-gray-700">
+                        Cardiovascular diseases (CVDs) continue to be a common
+                        cause of morbidity and mortality worldwide,
+                        necessitating ongoing monitoring of health and early
+                        detection. Recent years have seen the rise of mobile
+                        health (mHealth) technologies as potential solutions for
+                        enhancing healthcare delivery and encouraging patient
+                        engagement.
+                      </p>
+                    </div>
+
+                    <div className="space-y-4">
+                      <div className="flex items-start gap-3">
+                        <div className="w-1.5 h-1.5 mt-3 bg-red-400 rounded-full flex-shrink-0"></div>
+                        <p>
+                          Several mHealth applications offer basic health
+                          monitoring features, such as heart rate and step
+                          counts. While beneficial, such systems might not be
+                          able to collect and process complete cardiovascular
+                          information...
+                        </p>
+                      </div>
+
+                      <div className="flex items-start gap-3">
+                        <div className="w-1.5 h-1.5 mt-3 bg-yellow-400 rounded-full flex-shrink-0"></div>
+                        <p>
+                          A few studies have addressed integrating wearable
+                          sensors with mobile platforms. However, most such
+                          systems fail to provide real-time synchronization of
+                          data...
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="bg-gradient-to-br from-gray-50 to-white p-6 rounded-xl shadow-sm border">
+                      <h3 className="text-sm font-semibold text-gray-600 mb-3">
+                        Recent Research Insights
+                      </h3>
+                      <p>
+                        To close these gaps, recent research suggests employing
+                        Internet of Things (IoT) technology and cloud computing
+                        to harvest data in real-time...
+                      </p>
+                    </div>
+
+                    <div className="bg-blue-50/80 p-6 rounded-xl border-2 border-blue-200 relative overflow-hidden">
+                      <div className="absolute right-4 top-4 text-blue-300">
+                        <svg
+                          className="w-8 h-8"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24">
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="1.5"
+                            d="M13 10V3L4 14h7v7l9-11h-7z"
+                          />
+                        </svg>
+                      </div>
+                      <div className="relative">
+                        <p className="text-gray-700">
+                          <strong className="text-blue-700 font-semibold">
+                            MediSafe
+                          </strong>{" "}
+                          extends these findings and aims to overcome the
+                          limitations of the existing works by offering an
+                          end-to-end mobile solution...
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                ),
               },
               {
                 id: "domain-gap",
@@ -347,12 +432,12 @@ export default function App() {
                           <p className="text-gray-600 leading-relaxed">
                             CVDs remain a leading global killer, exacerbated in
                             developing nations by:
-                            <ul className="list-disc pl-6 mt-2 space-y-2 text-gray-600">
-                              <li>Inadequate healthcare infrastructure</li>
-                              <li>Prohibitive costs of continuous care</li>
-                              <li>Geographical barriers to access</li>
-                            </ul>
                           </p>
+                          <ul className="list-disc pl-6 mt-2 space-y-2 text-gray-600">
+                            <li>Inadequate healthcare infrastructure</li>
+                            <li>Prohibitive costs of continuous care</li>
+                            <li>Geographical barriers to access</li>
+                          </ul>
                         </div>
 
                         <div className="border-l-2 border-red-200 pl-4">
@@ -362,43 +447,43 @@ export default function App() {
                           <p className="text-gray-600 leading-relaxed">
                             Current mHealth solutions fail to address critical
                             needs:
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-3">
-                              <div className="flex items-center gap-2">
-                                <svg
-                                  className="w-5 h-5 text-red-500"
-                                  fill="none"
-                                  stroke="currentColor"
-                                  viewBox="0 0 24 24">
-                                  <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth="2"
-                                    d="M6 18L18 6M6 6l12 12"
-                                  />
-                                </svg>
-                                <span className="text-gray-600">
-                                  No real-time monitoring
-                                </span>
-                              </div>
-                              <div className="flex items-center gap-2">
-                                <svg
-                                  className="w-5 h-5 text-red-500"
-                                  fill="none"
-                                  stroke="currentColor"
-                                  viewBox="0 0 24 24">
-                                  <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth="2"
-                                    d="M6 18L18 6M6 6l12 12"
-                                  />
-                                </svg>
-                                <span className="text-gray-600">
-                                  Lack of IoT integration
-                                </span>
-                              </div>
-                            </div>
                           </p>
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-3">
+                            <div className="flex items-center gap-2">
+                              <svg
+                                className="w-5 h-5 text-red-500"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth="2"
+                                  d="M6 18L18 6M6 6l12 12"
+                                />
+                              </svg>
+                              <span className="text-gray-600">
+                                No real-time monitoring
+                              </span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <svg
+                                className="w-5 h-5 text-red-500"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth="2"
+                                  d="M6 18L18 6M6 6l12 12"
+                                />
+                              </svg>
+                              <span className="text-gray-600">
+                                Lack of IoT integration
+                              </span>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -559,6 +644,21 @@ export default function App() {
                           </span>
                         </div>
                       </div>
+
+                      <div className="mt-8">
+                        <h3 className="text-lg font-semibold text-gray-800 mb-4">
+                          Demo Video
+                        </h3>
+                        <div className="w-full max-w-4xl mx-auto rounded-lg overflow-hidden shadow-lg aspect-w-16 aspect-h-9">
+                          <iframe
+                            className="w-full h-96"
+                            src="https://www.youtube.com/embed/-Dt3GbQSlK4"
+                            title="YouTube video player"
+                            frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen></iframe>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 ),
@@ -622,39 +722,44 @@ export default function App() {
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         {[
                           {
-                            icon: "📱",
-                            title: "Mobile Platform Development",
-                            text: "Create patient-centric mobile app for continuous health monitoring",
+                            icon: "❤️",
+                            title: "Cardiac Risk Assessment",
+                            text: "ML-powered heart failure prediction with health scoring system",
                           },
                           {
-                            icon: "⚡",
-                            title: "IoT Integration",
-                            text: "Connect wearable ECG devices for real-time data collection",
+                            icon: "🗺️",
+                            title: "3D Pain Mapping",
+                            text: "Interactive body visualization for pain pattern analysis",
+                          },
+                          {
+                            icon: "📷",
+                            title: "ECG Analysis",
+                            text: "Camera-based cardiac evaluation with personalized recommendations",
+                          },
+                          {
+                            icon: "😊",
+                            title: "Emotion Recognition",
+                            text: "Multi-modal emotional state detection (text + facial analysis)",
                           },
                           {
                             icon: "☁️",
-                            title: "Cloud Infrastructure",
-                            text: "Implement Firebase backend for secure health data management",
-                          },
-                          {
-                            icon: "🤖",
-                            title: "ML Analytics",
-                            text: "Develop risk analysis algorithms for personalized alerts",
+                            title: "Health Data Cloud",
+                            text: "Secure storage and analysis of medical records",
                           },
                           {
                             icon: "📊",
-                            title: "Data Visualization",
-                            text: "Build interactive dashboards with historical trends",
+                            title: "Risk Visualization",
+                            text: "Interactive dashboards with health trend analytics",
                           },
                           {
-                            icon: "👥",
-                            title: "Communication Portal",
-                            text: "Enable real-time patient-physician messaging",
+                            icon: "🚨",
+                            title: "Alert System",
+                            text: "Emergency detection and care team notifications",
                           },
                           {
-                            icon: "🎯",
-                            title: "Goal Management",
-                            text: "Implement tracking system for health targets",
+                            icon: "💡",
+                            title: "Preventive Care",
+                            text: "Personalized health improvement recommendations",
                           },
                         ].map((obj, index) => (
                           <div
@@ -690,105 +795,105 @@ export default function App() {
                 title: "Methodology",
                 content: (
                   <div className="max-w-4xl mx-auto space-y-8">
-                    <div className="bg-white rounded-xl p-6 shadow-md border-l-4 border-blue-500">
-                      <h3 className="text-xl font-bold text-gray-800 mb-4">
-                        The MediSafe System Architecture
-                      </h3>
-                      <p className="text-gray-600 mb-4">
-                        The health monitoring platform comprises 5 core
-                        components:
-                      </p>
-
-                      <div className="space-y-6">
-                        {/* Component 1 */}
-                        <div className="bg-gray-50 p-4 rounded-lg">
-                          <h4 className="font-semibold text-blue-600 mb-2">
-                            1. Real-Time Biometric Capture
-                          </h4>
-                          <p className="text-gray-600">
-                            • IoT-enabled wearable integration for continuous
-                            ECG/heart rate monitoring
-                            <br />
-                            • Android-based data collection module using
-                            Bluetooth Low Energy
-                            <br />• Signal preprocessing pipeline for noise
-                            reduction
-                          </p>
-                        </div>
-
-                        {/* Component 2 */}
-                        <div className="bg-gray-50 p-4 rounded-lg">
-                          <h4 className="font-semibold text-blue-600 mb-2">
-                            2. Cardiovascular Risk Analysis
-                          </h4>
-                          <p className="text-gray-600">
-                            • ML models (LSTM networks) for arrhythmia detection
-                            <br />
-                            • Risk stratification algorithms using XGBoost
-                            classifiers
-                            <br />• Threshold-based alert system for critical
-                            events
-                          </p>
-                        </div>
-
-                        {/* Component 3 */}
-                        <div className="bg-gray-50 p-4 rounded-lg">
-                          <h4 className="font-semibold text-blue-600 mb-2">
-                            3. Cloud Data Management
-                          </h4>
-                          <p className="text-gray-600">
-                            • Firebase Realtime Database for synchronized health
-                            records
-                            <br />
-                            • Secure authentication with Firebase Auth
-                            <br />• REST API endpoints for EHR integration
-                          </p>
-                        </div>
-
-                        {/* Component 4 */}
-                        <div className="bg-gray-50 p-4 rounded-lg">
-                          <h4 className="font-semibold text-blue-600 mb-2">
-                            4. Care Coordination Platform
-                          </h4>
-                          <p className="text-gray-600">
-                            • Physician dashboard with patient prioritization
-                            <br />
-                            • Encrypted messaging system for care teams
-                            <br />• Automated report generation with Chart.js
-                            visualizations
-                          </p>
-                        </div>
-
-                        {/* Component 5 */}
-                        <div className="bg-gray-50 p-4 rounded-lg">
-                          <h4 className="font-semibold text-blue-600 mb-2">
-                            5. Preventive Care Module
-                          </h4>
-                          <p className="text-gray-600">
-                            • Personalized recommendation engine
-                            <br />
-                            • Goal tracking system with progress analytics
-                            <br />• Medication adherence monitoring
-                          </p>
-                        </div>
-                      </div>
-
-                      <div className="mt-8 bg-blue-50 p-4 rounded-lg">
-                        <p className="text-sm text-gray-600">
-                          <span className="font-semibold">System Flow:</span>{" "}
-                          Wearable devices stream data to Android app →
-                          Processed through ML models in Firebase cloud →
-                          Analyzed results trigger alerts via FCM notifications
-                          → Critical cases prioritized in physician dashboard →
-                          Preventive recommendations generated through analytics
-                          pipeline.
+                    <div className="max-w-4xl mx-auto space-y-8">
+                      <div className="bg-white rounded-xl p-6 shadow-md border-l-4 border-blue-500">
+                        <h3 className="text-xl font-bold text-gray-800 mb-4">
+                          Health Monitoring System Architecture
+                        </h3>
+                        <p className="text-gray-600 mb-4">
+                          The platform comprises 4 core components:
                         </p>
+
+                        <div className="space-y-6">
+                          {/* Component 1 */}
+                          <div className="bg-gray-50 p-4 rounded-lg">
+                            <h4 className="font-semibold text-blue-600 mb-2">
+                              1. Heart Failure Risk Prediction & Health Scoring
+                            </h4>
+                            <p className="text-gray-600">
+                              • ML models for cardiovascular risk pattern
+                              recognition
+                              <br />
+                              • Health score calculation (0-100 scale)
+                              <br />
+                              • Preventive measure recommendations engine
+                              <br />• Automated alerts for high-risk scenarios
+                            </p>
+                          </div>
+
+                          {/* Component 2 */}
+                          <div className="bg-gray-50 p-4 rounded-lg">
+                            <h4 className="font-semibold text-blue-600 mb-2">
+                              2. 3D Pain Localization & Analysis
+                            </h4>
+                            <p className="text-gray-600">
+                              • Interactive 3D body mapping interface
+                              <br />
+                              • Pain pattern recognition algorithms
+                              <br />
+                              • Emergency detection mechanism
+                              <br />• Integrated risk correlation system
+                            </p>
+                          </div>
+
+                          {/* Component 3 */}
+                          <div className="bg-gray-50 p-4 rounded-lg">
+                            <h4 className="font-semibold text-blue-600 mb-2">
+                              3. ECG-Based Health Recommendations
+                            </h4>
+                            <p className="text-gray-600">
+                              • Camera-enabled ECG analysis
+                              <br />
+                              • Automated cardiac assessment
+                              <br />
+                              • Context-aware feedback system
+                              <br />• Medical report generation
+                            </p>
+                          </div>
+
+                          {/* Component 4 */}
+                          <div className="bg-gray-50 p-4 rounded-lg">
+                            <h4 className="font-semibold text-blue-600 mb-2">
+                              4. Emotion Recognition System
+                            </h4>
+                            <p className="text-gray-600">
+                              • Multi-modal emotion detection (text + facial
+                              analysis)
+                              <br />
+                              • Emergency distress identification
+                              <br />
+                              • Adaptive response mechanism
+                              <br />• Preference-based intervention
+                            </p>
+                          </div>
+                        </div>
+
+                        <div className="mt-8 bg-blue-50 p-4 rounded-lg">
+                          <p className="text-sm text-gray-600">
+                            <span className="font-semibold">System Flow:</span>
+                            <br />
+                            Mobile data collection → ML analysis of health
+                            parameters + pain patterns → Integrated risk
+                            assessment → Personalized recommendations generation
+                            → Multi-channel emergency detection → Care provider
+                            alerts + patient feedback
+                          </p>
+                        </div>
                       </div>
+
+                      {/* Development Methodology remains similar with component-specific adjustments */}
+                    </div>
+                    <div className="flex justify-center">
+                      <img
+                        src={diagram}
+                        alt="System Architecture Diagram"
+                        className="w-full max-w-3xl rounded-lg shadow-lg"
+                      />
                     </div>
 
                     <div className="bg-white rounded-xl p-6 shadow-md border-l-4 border-green-500">
                       <h3 className="text-xl font-bold text-gray-800 mb-4">
-                        Development Phases
+                        Development Methodology
                       </h3>
 
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -796,32 +901,32 @@ export default function App() {
                           {
                             phase: "Requirement Analysis",
                             content:
-                              "Identified 12 critical patient needs through 50+ stakeholder interviews",
+                              "Identified critical patient and healthcare professional needs through stakeholder interviews",
                           },
                           {
                             phase: "System Design",
                             content:
-                              "Architected modular components using UML diagrams",
+                              "Three-tier architecture with Android frontend, Firebase backend, and ML analysis layer",
                           },
                           {
-                            phase: "ML Model Training",
+                            phase: "Data Processing",
                             content:
-                              "Trained on 15,000+ ECG samples from PhysioNet database",
+                              "ML algorithms for pattern recognition and risk prediction with automated alert system",
                           },
                           {
                             phase: "Implementation",
                             content:
-                              "Android (Java) frontend + Node.js middleware + Firebase backend",
+                              "Developed core features including real-time tracking, data visualization, and secure authentication",
                           },
                           {
-                            phase: "Validation",
+                            phase: "Testing",
                             content:
-                              "Achieved 92.4% arrhythmia detection accuracy in clinical trials",
+                              "Rigorous validation using anonymized patient data and clinical simulations",
                           },
                           {
                             phase: "Deployment",
                             content:
-                              "Play Store deployment with HIPAA-compliant infrastructure",
+                              "Android deployment with cloud integration and scalable architecture",
                           },
                         ].map((item, index) => (
                           <div
