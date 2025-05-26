@@ -3,6 +3,7 @@ import { Link as ScrollLink, Element } from "react-scroll";
 import coverImage from "./assets/cover.jpg";
 import diagram from "./assets/diagram.jpg";
 import logo from "/logo.png";
+import background from "/background.webp";
 import dulanProfile from "./assets/profiles/dulan.png";
 import akilaProfile from "./assets/profiles/akila.png";
 import rashiniProfile from "./assets/profiles/rashini.png";
@@ -94,7 +95,7 @@ export default function App() {
   ];
 
   return (
-    <div className="min-h-screen bg-white text-black">
+    <div className="min-h-screen bg-zinc-200 text-black">
       {/* Navbar */}
       <nav className="bg-white shadow p-4 fixed top-0 left-0 right-0 z-30">
         <div className="flex justify-between items-center">
@@ -192,7 +193,7 @@ export default function App() {
         </div>
       </nav>
 
-      <div className="pt-20 space-y-20 px-8 min-h-screen w-full">
+      <div className="pt-20 space-y-20 min-h-screen w-full">
         {/** Home Section */}
         <Element name="home">
           <section
@@ -646,9 +647,7 @@ export default function App() {
                       </div>
 
                       <div className="mt-8">
-                        <h3 className="text-lg font-semibold text-gray-800 mb-4">
-                          Demo Video
-                        </h3>
+                        <h3 className="text-lg font-semibold text-gray-800 mb-4"></h3>
                         <div className="w-full max-w-4xl mx-auto rounded-lg overflow-hidden shadow-lg aspect-w-16 aspect-h-9">
                           <iframe
                             className="w-full h-96"
