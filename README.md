@@ -1,12 +1,50 @@
-# React + Vite
+MediSafe – Mobile-Based Health Monitoring App for Cardiovascular Patients
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 👨‍🎓 Project Members
 
-Currently, two official plugins are available:
+| Student Name              | Student ID   |
+|--------------------------|--------------|
+| Weerasekara D.D.R.R.     | IT21193804   |
+| Chandrasekara C.M.A.P.K. | IT21255588   |
+| Dahanayake R.A.          | IT21270338   |
+| Rathnayake D.T.          | IT21266782   |
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+This is the official website for the research project mediSafe, a mobile-based health monitoring application tailored for cardiovascular patients. This site is built using React + Vite and hosted on GitHub Pages.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+🧑‍💻 Local Development Setup
+
+Follow the steps below to set up and run the project locally:
+
+1. Clone the Repository
+
+git clone https://github.com/dulanweerasekara/research-website.git
+cd research-website
+
+2. Install Dependencies
+
+Make sure you have Node.js installed. Then run:
+
+npm install
+
+3. Run the Development Server
+
+npm run dev
+
+The application will be available at http://localhost:5173/ by default.
+
+🚀 Deployment
+
+The site is hosted via GitHub Pages at:
+
+https://dulanweerasekara.github.io/research-website/
+
+
+🔧 Tech Stack
+
+React
+
+Vite
+
+GitHub Pages
+
